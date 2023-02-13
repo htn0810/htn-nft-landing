@@ -1,0 +1,100 @@
+.footer {
+  padding: 115px 40px 0px 0px;
+  margin-top: 100px;
+  @include minMaxWidth($verySmall, $small) {
+    padding: 0px 0px;
+  }
+  &__details {
+    display: flex;
+    flex-basis: auto auto;
+    @include maxWidth($medium) {
+      flex-direction: column;
+      gap: 50px 0;
+    }
+  }
+  &__info {
+    width: 100%;
+    display: flex;
+    gap: 0 51px;
+    img {
+      width: 194px;
+      height: 194px;
+      object-fit: cover;
+      @include minMaxWidth($verySmall, $small) {
+        width: 100px;
+        height: 100px;
+      }
+    }
+    &--overview {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 36px;
+      color: $softGrayText;
+      @include minMaxWidth($verySmall, $small) {
+        font-size: 18px;
+        line-height: 30px;
+      }
+    }
+  }
+  &__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    &--item {
+      display: flex;
+      flex-direction: column;
+      &-title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 35px;
+        @include minMaxWidth($verySmall, $small) {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+      &-category {
+        list-style: none;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 50px;
+        color: $softGrayText;
+        margin-top: 18px;
+        @include minMaxWidth($verySmall, $small) {
+          font-size: 16px;
+          line-height: 40px;
+        }
+        li {
+          &:hover {
+            color: $primaryColor;
+          }
+        }
+      }
+    }
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 0 45px;
+    img {
+      transition: all 0.25s ease-out;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
+  &__author {
+    margin-top: 50px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    color: $softGrayText;
+    text-align: center;
+    @include minMaxWidth($verySmall, $small) {
+      font-size: 16px;
+      line-height: 30px;
+    }
+  }
+}

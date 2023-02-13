@@ -1,0 +1,166 @@
+.explore {
+  margin-top: 104px;
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  &__blurY {
+    top: 10%;
+    left: 0;
+    @include blur($primaryColor);
+  }
+  &__blurP {
+    bottom: 10px;
+    right: 0;
+    @include blur($mainPurple);
+  }
+  &__iconLeft,
+  &__iconRight {
+    position: absolute;
+    top: 200px;
+    @include icon;
+    @include maxWidth($medium) {
+      display: none;
+    }
+    &.hide {
+      display: none;
+    }
+  }
+  &__iconLeft {
+    left: 20px;
+  }
+  &__iconRight {
+    right: 0;
+  }
+  &__title {
+    @include titleSection($mainPurple);
+  }
+  &__slider {
+    display: flex;
+    gap: 0 42px;
+    margin-top: 84px;
+    transition: all 0.25s ease-out;
+    @include maxWidth($medium) {
+      flex-direction: column;
+      gap: 30px 0;
+    }
+    &--item {
+      padding: 32px;
+      background-color: rgba($color: #3d2942, $alpha: 0.5);
+      &-img {
+        position: relative;
+        height: 306px;
+        width: 351px;
+        @include minMaxWidth($medium, $large) {
+          width: 280px;
+        }
+        @include maxWidth($medium) {
+          width: 100%;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        &-modal {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 0px;
+          background-color: rgba($color: #000000, $alpha: 0.65);
+          transition: all 0.25s ease-out;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          button {
+            padding: 24px 64px;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 28px;
+            text-align: center;
+            color: $blackText;
+            background-color: $primaryColor;
+            cursor: pointer;
+            @include minMaxWidth($verySmall, $small) {
+              padding: 16px 36px;
+              font-size: 24px;
+            }
+          }
+        }
+        &:hover &-modal {
+          height: 100%;
+        }
+      }
+      &-info {
+        margin-top: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-author {
+          display: flex;
+          gap: 0 12px;
+          img {
+            width: 58px;
+            height: 58px;
+            object-fit: cover;
+          }
+          &-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            span:first-child {
+              font-weight: 600;
+              font-size: 24px;
+              line-height: 35px;
+            }
+            span:last-child {
+              font-weight: 400;
+              font-size: 18px;
+              line-height: 35px;
+              color: $softGrayText;
+            }
+          }
+        }
+        &-love {
+          display: flex;
+          align-items: center;
+          gap: 0 12px;
+          img {
+            width: 24px;
+            height: 22px;
+            object-fit: cover;
+          }
+          span {
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 35px;
+            color: $softGrayText;
+          }
+        }
+      }
+      &-bid {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+        span:first-child {
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 35px;
+          color: $softGrayText;
+        }
+        span:last-child {
+          font-family: $primaryFont;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 35px;
+        }
+      }
+    }
+  }
+  &__btn {
+    @include btnViewAll;
+  }
+}

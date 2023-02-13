@@ -1,0 +1,131 @@
+@mixin btnBanner($colorText, $colorBg, $px, $widthRespon: 1280px) {
+  @if $widthRespon == 960px {
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    padding: 16px 40px;
+  }
+  @if $widthRespon == 1280px {
+    font-size: 28px;
+    line-height: 36px;
+    padding: 24px $px;
+  }
+  @if $widthRespon == 1024px {
+    font-size: 22px;
+    line-height: 30px;
+    padding: 24px $px;
+  }
+  font-weight: 600;
+  border: 1px solid $primaryColor;
+  color: $colorText;
+  background-color: $colorBg;
+  cursor: pointer;
+}
+
+@mixin btnViewAll() {
+  padding: 24px 64px;
+  margin-top: 84px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: 0.05em;
+  color: $secondaryColor;
+  border: 1px solid $primaryColor;
+  background-color: rgba($color: $primaryColor, $alpha: 0.1);
+  cursor: pointer;
+  @include minMaxWidth($verySmall, $small) {
+    padding: 16px 36px;
+    font-size: 24px;
+  }
+}
+
+@mixin titleSection($color) {
+  font-family: $primaryFont;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 130px;
+  color: $secondaryColor;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  @include minMaxWidth($small, $medium) {
+    font-size: 48px;
+    line-height: 116px;
+  }
+  @include minMaxWidth($verySmall, $small) {
+    font-size: 36px;
+    line-height: 45px;
+  }
+  &::after {
+    content: "";
+    width: 110px;
+    height: 110px;
+    border-radius: 100%;
+    @if $color {
+      background-color: $color;
+    }
+    position: absolute;
+    left: -40px;
+    top: 0;
+    z-index: -1;
+    animation: animateMove 4s infinite;
+    @include minMaxWidth($verySmall, $small) {
+      width: 80px;
+      height: 80px;
+      top: -45%;
+      left: -35px;
+    }
+  }
+}
+
+@mixin blur($color) {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba($color: $color, $alpha: 0.6);
+  border-radius: 50%;
+  filter: blur(212px);
+  z-index: -1;
+}
+
+@mixin icon() {
+  width: 60px;
+  height: 60px;
+  background-color: $softGrayText;
+  border-radius: 100rem;
+  padding: 8px;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  &:hover {
+    color: $softBlackText;
+    background-color: $secondaryColor;
+    transform: scale(1.25);
+  }
+}
+
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+
+@mixin minMaxWidth($minValue, $maxValue) {
+  @media (min-width: $minValue) and (max-width: $maxValue) {
+    @content;
+  }
+}
+
+// animate
+@keyframes animateMove {
+  0% {
+    left: -40px;
+  }
+  50% {
+    left: calc(100% - 40px);
+  }
+  100% {
+    left: -40px;
+  }
+}

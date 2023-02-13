@@ -1,0 +1,207 @@
+@import "./common/mixins.scss";
+.banner {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  @include maxWidth($medium) {
+    flex-direction: column;
+  }
+  &__blurY {
+    top: 50%;
+    left: 100px;
+    @include blur($primaryColor);
+  }
+  &__blurP {
+    top: 0;
+    right: 100px;
+    @include blur($mainPurple);
+  }
+  &__blurR {
+    bottom: 0;
+    right: 100px;
+    @include blur($mainRed);
+  }
+  &__content {
+    width: 50%;
+    margin-top: 171px;
+    padding-right: 40px;
+    @include maxWidth($medium) {
+      margin-top: 50px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-right: 0;
+    }
+    &--title {
+      font-family: $primaryFont;
+      font-weight: 700;
+      font-size: 85px;
+      line-height: 130px;
+      @include maxWidth($medium) {
+        font-size: 62px;
+        line-height: 93px;
+      }
+      @include minMaxWidth($medium, $large) {
+        font-size: 70px;
+        line-height: 110px;
+      }
+      &-mark {
+        color: $primaryColor;
+      }
+    }
+    &--button {
+      margin-top: 77px;
+      display: flex;
+      gap: 0px 48px;
+      @include maxWidth($medium) {
+        margin-top: 56px;
+      }
+      button:nth-child(1) {
+        @include btnBanner($blackText, $primaryColor, 90px);
+        @include maxWidth($medium) {
+          @include btnBanner($blackText, $primaryColor, 90px, $medium);
+        }
+        @include minMaxWidth($medium, $large) {
+          @include btnBanner($blackText, $primaryColor, 60px, 1024px);
+        }
+      }
+      button:nth-child(2) {
+        @include btnBanner(
+          $primaryColor,
+          rgba($color: $primaryColor, $alpha: 0.1),
+          90px
+        );
+        @include maxWidth($medium) {
+          @include btnBanner(
+            $primaryColor,
+            rgba($color: $primaryColor, $alpha: 0.1),
+            90px,
+            $medium
+          );
+        }
+        @include minMaxWidth($medium, $large) {
+          @include btnBanner(
+            $primaryColor,
+            rgba($color: $primaryColor, $alpha: 0.1),
+            60px,
+            1024px
+          );
+        }
+      }
+    }
+    &--details {
+      display: flex;
+      gap: 0px 90px;
+      margin-top: 121px;
+      list-style-type: none;
+      @include maxWidth($medium) {
+        display: none;
+      }
+      &-item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px 0px;
+        strong {
+          font-weight: 700;
+          font-size: 62px;
+          line-height: 78px;
+          font-family: $primaryFont;
+        }
+        span {
+          color: $grayTextBanner;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 35px;
+        }
+        @include minMaxWidth($medium, $large) {
+          strong {
+            font-weight: 700;
+            font-size: 42px;
+            line-height: 58px;
+            font-family: $primaryFont;
+          }
+          span {
+            color: $grayTextBanner;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 28px;
+          }
+        }
+      }
+    }
+  }
+  &__product {
+    width: 50%;
+    z-index: 10;
+    margin-top: 139px;
+    text-align: center;
+    max-width: 556px;
+    min-width: 328px;
+    @include maxWidth($medium) {
+      width: 100%;
+      margin-top: 50px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &--item {
+      margin-left: 59px;
+      @include maxWidth($medium) {
+        margin-left: 0;
+      }
+      @include minMaxWidth($medium, $large) {
+        margin-left: 20px;
+      }
+      height: 718px;
+      &-top {
+        width: 100%;
+        background-image: url("./images/productThumb.svg");
+        height: 576px;
+      }
+      &-bot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 39px;
+        height: 142px;
+        font-size: 24px;
+        background-color: #fff;
+        @include maxWidth($medium) {
+          padding: 0px 20px;
+        }
+        &-author {
+          display: flex;
+          flex-direction: column;
+          gap: 5px 0px;
+          span:nth-child(1) {
+            color: $softBlackText;
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 35px;
+            font-family: $primaryFont;
+            @include maxWidth($medium) {
+              font-size: 24px;
+              line-height: 38px;
+              letter-spacing: 0.07em;
+            }
+          }
+          span:nth-child(2) {
+            font-weight: 400;
+            line-height: 35px;
+            color: $softGrayText;
+            @include maxWidth($medium) {
+              font-size: 20px;
+              line-height: 41px;
+            }
+          }
+        }
+        button {
+          @include btnBanner($blackText, $primaryColor, 44px);
+          @include maxWidth($medium) {
+            @include btnBanner($blackText, $primaryColor, 44px, $medium);
+          }
+        }
+      }
+    }
+  }
+}

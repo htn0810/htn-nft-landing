@@ -1,0 +1,92 @@
+@import "./assets/variables.scss";
+@import "./assets/common/mixins.scss";
+@import "./assets/header.scss";
+@import "./assets/banner.scss";
+@import "./assets/liveaction.scss";
+@import "./assets/howitwork.scss";
+@import "./assets/popular.scss";
+@import "./assets/explore.scss";
+@import "./assets/topcreator.scss";
+@import "./assets/readyemail.scss";
+@import "./assets/footer.scss";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.App {
+  width: 100vw;
+  background-color: $bgColor;
+  padding: 38px 81px;
+  color: $secondaryColor;
+  font-family: $secondaryFont;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  position: relative;
+  overflow-x: hidden;
+  @include maxWidth($medium) {
+    padding: 20px 30px;
+  }
+
+  .layout {
+    max-width: 1366px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    .onTop {
+      position: fixed;
+      padding: 10px;
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      bottom: 50px;
+      right: 100px;
+      cursor: pointer;
+      z-index: 100;
+      background-color: $primaryColor;
+      transition: all 0.25s ease-out;
+      display: none;
+      &:hover {
+        transform: scale(1.25);
+        background-color: rgba($color: $grayTextBanner, $alpha: 0.5);
+      }
+      &.show {
+        display: block;
+      }
+      @include minMaxWidth($verySmall, $small) {
+        right: 50px;
+      }
+    }
+  }
+  .overlay {
+    position: absolute;
+    background-color: #4f464e;
+    width: 50%;
+    height: 1063px;
+    top: 0;
+    right: 0;
+  }
+  .client__logo {
+    width: 100%;
+    height: 41px;
+    margin-top: 104px;
+    background-image: url("./assets/images/clientsChainLogo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    @include maxWidth($medium) {
+      margin-top: 74px;
+      background-image: url("./assets/images/clientsChainLogoMobile.svg");
+      height: 92px;
+    }
+  }
+}

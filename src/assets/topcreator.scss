@@ -1,0 +1,155 @@
+.top {
+  padding: 104px 0px 80px 0px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  &__blurP {
+    top: 10%;
+    left: 0;
+    @include blur($mainPurple);
+  }
+  &__blurY {
+    bottom: 10px;
+    right: 0;
+    @include blur($primaryColor);
+  }
+  &__title {
+    @include titleSection($mainRed);
+  }
+  &__creators {
+    display: flex;
+    margin-top: 80px;
+    gap: 0 20px;
+    flex-wrap: wrap;
+    flex-basis: auto auto;
+    justify-content: center;
+    @include maxWidth($medium) {
+      gap: 20px 0px;
+    }
+    &--col1,
+    &--col2 {
+      flex-basis: 45%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px 0;
+      @include maxWidth($medium) {
+        flex-basis: auto;
+      }
+    }
+    &--item {
+      padding: 28px 64px;
+      background-color: rgba($color: #3d2942, $alpha: 0.5);
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      @include minMaxWidth($medium, $large) {
+        padding: 20px 40px;
+      }
+      @include minMaxWidth($verySmall, $small) {
+        padding: 10px 20px;
+      }
+      &-info {
+        display: flex;
+        gap: 0 24px;
+        align-items: center;
+        flex: 1;
+        &-avatar {
+          width: 104px;
+          height: 104px;
+          object-fit: cover;
+          @include minMaxWidth($medium, $large) {
+            width: 80px;
+            height: 80px;
+          }
+          @include minMaxWidth($verySmall, $small) {
+            width: 60px;
+            height: 60px;
+          }
+        }
+        &-creator {
+          display: flex;
+          flex-direction: column;
+          gap: 8px 0;
+          align-items: flex-start;
+          span:first-child {
+            font-family: $primaryFont;
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 35px;
+            letter-spacing: 0.05em;
+            @include minMaxWidth($medium, $large) {
+              font-size: 28px;
+              line-height: 30px;
+            }
+            @include minMaxWidth($verySmall, $small) {
+              font-size: 20px;
+              line-height: 22px;
+            }
+          }
+          span:last-child {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 36px;
+            color: $softGrayText;
+            @include minMaxWidth($medium, $large) {
+              font-size: 20px;
+              line-height: 32px;
+            }
+            @include minMaxWidth($verySmall, $small) {
+              font-size: 16px;
+              line-height: 28px;
+            }
+          }
+        }
+      }
+      &-donate {
+        padding-left: 45px;
+        border-left: 3px solid $softGrayText;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px 0;
+        @include minMaxWidth($medium, $large) {
+          padding-left: 15px;
+          margin-left: 10px;
+        }
+        @include minMaxWidth($verySmall, $small) {
+          padding-left: 10px;
+        }
+        span:first-child {
+          font-family: $primaryFont;
+          font-weight: 700;
+          font-size: 32px;
+          line-height: 35px;
+          letter-spacing: 0.05em;
+          @include minMaxWidth($medium, $large) {
+            font-size: 28px;
+            line-height: 30px;
+          }
+          @include minMaxWidth($verySmall, $small) {
+            font-size: 20px;
+            line-height: 22px;
+          }
+        }
+        span:last-child {
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 36px;
+          color: $softGrayText;
+          @include minMaxWidth($medium, $large) {
+            font-size: 20px;
+            line-height: 32px;
+          }
+          @include minMaxWidth($verySmall, $small) {
+            font-size: 16px;
+            line-height: 28px;
+          }
+        }
+      }
+    }
+  }
+  &__btn {
+    @include btnViewAll;
+  }
+}

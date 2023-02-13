@@ -1,0 +1,109 @@
+.popular {
+  margin-top: 174px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  &__blurP {
+    top: 10%;
+    left: 0;
+    @include blur($mainPurple);
+  }
+  &__blurR {
+    bottom: 10px;
+    right: 0;
+    @include blur($mainRed);
+  }
+  &__iconLeft,
+  &__iconRight {
+    position: absolute;
+    top: 420px;
+    @include icon;
+    @include maxWidth($medium) {
+      display: none;
+    }
+
+    &.hide {
+      display: none;
+    }
+  }
+  &__iconLeft {
+    left: 20px;
+  }
+  &__iconRight {
+    right: 0;
+  }
+  &__title {
+    @include titleSection($mainRed);
+  }
+  &__slider {
+    display: flex;
+    gap: 0 36px;
+    margin-top: 112px;
+    transition: all 0.25s ease-out;
+    @include minMaxWidth($medium, $large) {
+      gap: 0 28px;
+    }
+    @include maxWidth($medium) {
+      flex-direction: column;
+      gap: 30px 0;
+    }
+    &--item {
+      padding: 36px;
+      background-color: rgba($color: #3d2942, $alpha: 0.5);
+      @include minMaxWidth($medium, $large) {
+        padding: 28px;
+      }
+      img {
+        width: 453px;
+        height: 272px;
+        object-fit: cover;
+        @include minMaxWidth($medium, $large) {
+          width: 380px;
+          height: 272px;
+        }
+        @include maxWidth($medium) {
+          width: 100%;
+          height: 272px;
+        }
+      }
+      &-info {
+        margin-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-author {
+          display: flex;
+          align-items: center;
+          gap: 0 16px;
+          img {
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+          }
+          span {
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 36px;
+            @include maxWidth($medium) {
+              font-size: 24px;
+              line-height: 28px;
+            }
+          }
+        }
+        &-detail {
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 35px;
+          color: $softGrayText;
+          @include maxWidth($medium) {
+            font-size: 16px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+  &__btn {
+    @include btnViewAll;
+  }
+}

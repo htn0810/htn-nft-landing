@@ -1,0 +1,51 @@
+.how {
+  margin-top: 154px;
+  text-align: center;
+  &__title {
+    @include titleSection("");
+    margin-bottom: 24px;
+  }
+  &__process {
+    display: flex;
+    gap: 0 57px;
+    list-style: none;
+    align-items: center;
+    @include minMaxWidth($medium, $large) {
+      gap: 0 20px;
+    }
+    @include maxWidth($medium) {
+      flex-direction: column;
+      gap: 100px 0;
+    }
+    &--item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      span {
+        margin-top: 20px;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 28px;
+        text-transform: capitalize;
+        text-align: center;
+        color: $primaryColor;
+      }
+    }
+    &--arrow {
+      transform: translateY(-45px);
+      @include maxWidth($medium) {
+        transform: translateY(0px);
+        transform: rotate(90deg);
+      }
+      &-item {
+        img {
+          width: 166px;
+          object-fit: cover;
+          @include minMaxWidth($medium, $large) {
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
+}

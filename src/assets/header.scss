@@ -1,0 +1,118 @@
+@import "./common/mixins.scss";
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  position: relative;
+  &__logo {
+    width: 66px;
+    height: 66px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  &__nav {
+    list-style-type: none;
+    display: flex;
+    column-gap: 64px;
+    @include maxWidth($medium) {
+      display: none;
+    }
+    &--item {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      a {
+        outline: none;
+        text-decoration: none;
+        color: $secondaryColor;
+        text-transform: capitalize;
+        &:hover {
+          color: $primaryColor;
+        }
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $primaryColor;
+        transition: all 0.25s ease-out;
+      }
+      &:hover {
+        color: $primaryColor;
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  &__btn {
+    @include maxWidth($medium) {
+      display: none;
+    }
+    z-index: 10;
+    color: $primaryColor;
+    padding: 22px 30px;
+    border: 1px solid $primaryColor;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgba($color: $primaryColor, $alpha: 0.1);
+    cursor: pointer;
+  }
+  &__menu {
+    display: none;
+    width: 38px;
+
+    &--icon {
+      cursor: pointer;
+    }
+    @include maxWidth($medium) {
+      display: block;
+    }
+  }
+  .menu__medium {
+    display: flex;
+    flex-direction: column;
+    gap: 30px 0;
+    position: absolute;
+    top: 66px;
+    right: 0;
+    background: rgba($color: $softGrayText, $alpha: 0.9);
+    border-radius: 20px;
+    width: 200px;
+    // height: 200px;
+    z-index: 500;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 50px;
+    text-align: center;
+    padding: 20px 0;
+    transform: translateX(200%);
+    transition: all 0.25s ease-in-out;
+    text-transform: capitalize;
+    &.show {
+      transform: translateX(0);
+    }
+    div {
+      cursor: pointer;
+      transition: all ease-out 0.25s;
+      a {
+        outline: none;
+        text-decoration: none;
+        color: $secondaryColor;
+        text-transform: capitalize;
+        transition: all ease-out 0.25s;
+        &:hover {
+          color: $blackText;
+        }
+      }
+      &:hover {
+        background-color: $primaryColor;
+      }
+    }
+  }
+}

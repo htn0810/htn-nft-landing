@@ -1,0 +1,189 @@
+@import "./common/mixins.scss";
+.live {
+  margin-top: 104px;
+  padding: 80px 0px;
+  width: 100%;
+  // overflow: hidden;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  &__blurR {
+    top: 10%;
+    left: 0;
+    @include blur($mainRed);
+  }
+  &__blurY {
+    bottom: 10px;
+    right: 0;
+    @include blur($primaryColor);
+  }
+  &__icon {
+    position: absolute;
+    top: 195px;
+    right: 10px;
+    display: flex;
+    gap: 0 20px;
+    @include maxWidth($medium) {
+      display: none;
+    }
+    span {
+      @include icon;
+    }
+  }
+  &__title {
+    @include titleSection($mainPurple);
+  }
+  &__slider {
+    margin-top: 84px;
+    width: 1366px;
+    display: flex;
+    gap: 0 50px;
+    @include minMaxWidth($medium, $large) {
+      gap: 0 30px;
+    }
+    @include maxWidth($medium) {
+      flex-direction: column;
+      gap: 20px 0px;
+      width: 100%;
+    }
+    transition: all ease-out 0.25s;
+    &--item {
+      width: 100%;
+      padding: 32px;
+      background-color: rgba($color: #3d2942, $alpha: 0.5);
+      transition: all ease-out 0.25s;
+      @include minMaxWidth($medium, $large) {
+        padding: 24px;
+      }
+      &.mark {
+        border: 2px solid $primaryColor;
+        background-color: rgba($color: $primaryColor, $alpha: 0.2);
+        transform: translateY(-20px);
+        @include maxWidth($medium) {
+          transform: translateY(0px);
+          border: none;
+          background-color: rgba($color: #3d2942, $alpha: 0.5);
+          gap: 0px;
+        }
+      }
+      &-img {
+        width: 431px;
+        height: 359px;
+        position: relative;
+        @include minMaxWidth($medium, $large) {
+          width: 400px;
+          height: 328px;
+        }
+        @include maxWidth($medium) {
+          width: 100%;
+          height: 278px;
+        }
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &-time {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 15px 47px;
+        background-image: linear-gradient(to right, #8613a5, #fafafa);
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 35px;
+        letter-spacing: 0.02em;
+        @include maxWidth($medium) {
+          font-size: 18px;
+          line-height: 28px;
+        }
+      }
+      &-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 28px;
+      }
+      &-bid {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 28px;
+        span {
+          font-size: 24px;
+          line-height: 35px;
+          @include maxWidth($medium) {
+            font-size: 20px;
+            line-height: 30px;
+          }
+        }
+        span:nth-child(1) {
+          font-weight: 400;
+          color: $softGrayText;
+        }
+        span:nth-child(2) {
+          font-family: $primaryFont;
+          font-weight: 700;
+        }
+      }
+      &-btn {
+        width: 100%;
+        margin-top: 40px;
+        padding: 21px 80px;
+        font-weight: 500;
+        color: $secondaryColor;
+        font-size: 24px;
+        line-height: 35px;
+        letter-spacing: 0.05em;
+        border: 1px solid $primaryColor;
+        background-color: rgba($color: $primaryColor, $alpha: 0.1);
+        cursor: pointer;
+        @include maxWidth($medium) {
+          padding: 21px 40px;
+        }
+      }
+    }
+    &--author {
+      display: flex;
+      gap: 0 16px;
+      &-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px 0;
+        line-height: 35px;
+        span:nth-child(1) {
+          font-weight: 500;
+          font-size: 28px;
+          @include maxWidth($medium) {
+            font-size: 24px;
+          }
+        }
+        span:nth-child(2) {
+          font-weight: 400;
+          font-size: 20px;
+          color: $softGrayText;
+          @include maxWidth($medium) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    &--love {
+      display: flex;
+      align-items: center;
+      gap: 0 9px;
+      span {
+        font-size: 32px;
+        line-height: 35px;
+        color: $softGrayText;
+        @include maxWidth($medium) {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+  &__btn {
+    @include btnViewAll;
+  }
+}

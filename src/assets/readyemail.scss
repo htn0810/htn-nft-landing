@@ -1,0 +1,59 @@
+.ready {
+  height: 452px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  @include maxWidth($medium) {
+    border-top: 2px dashed $softGrayText;
+  }
+  &__title {
+    @include titleSection("");
+  }
+  &__email {
+    display: flex;
+    @include maxWidth($medium) {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px 0;
+    }
+    &--input {
+      width: 436px;
+      padding: 30px 53px;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 35px;
+      color: $softGrayText;
+      background: transparent;
+      outline: none;
+      border: 2px solid $primaryColor;
+      @include maxWidth($medium) {
+        width: 100%;
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+    &--btn {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 35px;
+      color: $blackText;
+      padding: 28px 63px;
+      background: $primaryColor;
+      border: 2px solid $primaryColor;
+      cursor: pointer;
+      transition: all 0.25s ease-out;
+      @include maxWidth($medium) {
+        width: 200px;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 20px;
+        line-height: 30px;
+      }
+      &:hover {
+        background: rgba($color: $primaryColor, $alpha: 0.1);
+        color: $secondaryColor;
+      }
+    }
+  }
+}
